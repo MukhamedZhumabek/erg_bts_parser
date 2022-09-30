@@ -65,14 +65,14 @@ class ParserBankrupt:
         """
         download_link_keys = ["возбуждени", "дела", "банкротств", "порядке", "заявлени", "требован",
                               "кредиторам", "времен", "управляю"]
-        download_link_extract_methods = [self._get_by_link, self._get_by_span, self._get_by_u]
+        download_link_extract_methods = [self.get_by_link, self.get_by_span, self.get_by_u]
         for method_ in download_link_extract_methods:
             download_link = method_(soup, download_link_keys)
             if download_link:
                 return download_link
 
     @staticmethod
-    def _get_by_link(soup, keys):
+    def get_by_link(soup, keys):
         """
         try extract download link by searching <a> tag
         """
@@ -83,7 +83,7 @@ class ParserBankrupt:
                 return download_link
 
     @staticmethod
-    def _get_by_span(soup, keys):
+    def get_by_span(soup, keys):
         """
         try extract download link by searching <span> tag
         """
@@ -94,7 +94,7 @@ class ParserBankrupt:
                 return download_link
 
     @staticmethod
-    def _get_by_u(soup, keys):
+    def get_by_u(soup, keys):
         """
         try extract download link by searching <u> tag
         """
