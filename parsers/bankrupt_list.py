@@ -12,6 +12,8 @@ from db.create_db import conn
 from utils import check_text_match_all_keys
 from web_sources import years
 
+logging.getLogger().setLevel(logging.INFO)
+
 
 class ParserBankrupt:
 
